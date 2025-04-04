@@ -35,21 +35,28 @@
 </template>
 
 <script setup>
-import { ref, watch } from 'vue'
-
-const { data, status, error } = await useAsyncData(
-  'mountains',
+const { data, status } = await useAsyncData(
+  'products',
   () => $fetch('https://fakestoreapi.com/products')
 )
 
 const route = useRoute()
-const card = ref(null)
+const card = ref({
+  collapse: false,
+  description: "",
+  title: "",
+  image: "",
+  rating: 0,
+  price: 0
+})
+
 const description = computed(() => {
   if(card.value.collapse) {
     return card.value.description.slice(0, 50) + '...Read more'
   }
   return card.value.description
 })
+
 onMounted(() => {
   if (data) {
     const _card = data.value.find((item) => item.id == route.params.id)
