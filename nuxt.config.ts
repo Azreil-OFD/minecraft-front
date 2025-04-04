@@ -1,4 +1,4 @@
-import Nora from '@primeuix/themes/nora';
+import Nora from '@primeuix/themes/aura';
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineNuxtConfig({

@@ -1,13 +1,16 @@
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Rosarivo:ital@0;1&display=swap');
 
+:root{
+    --p-inputtext-hover-border-color: white !important;
+    --p-inputtext-focus-border-color: white !important;
+    --p-inputtext-border-color: white !important;
+}
+
 body {
     background-color: #201520;
     --p-card-background: rgba(255, 255, 255, 0.1);
     --p-card-border-radius: 12.6px;
-    --p-inputtext-hover-border-color: white !important;
-    --p-inputtext-focus-border-color: white !important;
-    --p-inputtext-border-color: white !important;
 }
 
 .p-card-header{

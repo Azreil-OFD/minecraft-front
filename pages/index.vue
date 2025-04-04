@@ -1,11 +1,15 @@
 <template>
   <div class="p-5">
-    <div class="">
-      <InputText type="text" class="rosarivo-regular inp_text" placeholder="Browse your favourite products..."/>
+    <div class="flex justify-center pt-5">
+      <IconField class="flex w-[90%]">
+        <InputIcon class="pi pi-search" style="color: white;"/>
+        <InputText v-model="search" type="text" class="rosarivo-regular inp_text w-full" placeholder="Browse your favourite products..."/>
+      </IconField>
     </div>
+      
     <!-- Список продуктов -->
     <div class="flex gap-5 pt-5 flex-wrap w-full justify-center">
-      <Card v-for="item in data" class="w-[45%]">
+      <Card v-for="item in searchHandler(data)" class="w-[45%]" @click="router.push(`/products/${item.id}`)">
         <template #header>
           <img  :src="item.image" class="rounded-4xl h-50 object-contain bg-white w-full">
         </template>
@@ -28,11 +32,25 @@
 <script setup>
 import Card from 'primevue/card';
 import InputText from 'primevue/inputtext';
+import 'primeicons/primeicons.css'
+import IconField from 'primevue/iconfield';
+import InputIcon from 'primevue/inputicon';
+
+const router = useRouter()
 
 const { data, status } = await useAsyncData(
   'products',
   () => $fetch('https://fakestoreapi.com/products')
 )
+
+const search = ref("")
+const searchHandler = (data) => {
+  if(search.value === "") {
+    return data
+  }
+  return data.filter((item) => item.title.toLowerCase().includes(search.value.toLowerCase()));
+}
+
 
 </script>
 
@@ -42,17 +60,8 @@ const { data, status } = await useAsyncData(
   background-color: rgba(23, 16, 23, 1);
   color: white;
   border: 0px;
+  border-radius: 10px;
 }
 
-.inp_text:focus{
-  background-color: rgba(23, 16, 23, 1);
-  color: white;
-}
-
-.inp_text:active{
-  background-color: rgba(23, 16, 23, 1);
-  color: white;
-  border: 0px;
-}
 
 </style>
