@@ -3,16 +3,51 @@
 
 body {
     background-color: #201520;
+    --p-card-background: rgba(255, 255, 255, 0.1);
+    --p-card-border-radius: 12.6px;
+    --p-inputtext-hover-border-color: white !important;
+    --p-inputtext-focus-border-color: white !important;
+    --p-inputtext-border-color: white !important;
+}
+
+.p-card-header{
+    padding: 15px;
+    padding-bottom: 0px;
 }
 
 .rosarivo-regular {
     font-family: "Rosarivo", cursive;
     font-weight: 400;
     font-style: normal;
+    color: white;
 }
 
 .rosarivo-regular-italic {
     font-family: "Rosarivo", cursive;
     font-weight: 400;
     font-style: italic;
+    color: white;
 }
+
+.round {
+    border-radius: 15px;
+    background-color: #EFE3C8;
+    border-color: #EFE3C8;
+  }
+  
+  .round:hover {
+    border-radius: 15px;
+    background-color: #fcf7ec;
+    border-color: #EFE3C8;
+  }
+  
+  .footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  .grap {
+    cursor: pointer;
+  }

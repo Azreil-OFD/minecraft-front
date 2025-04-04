@@ -76,26 +76,5 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.round {
-  border-radius: 15px;
-  background-color: #EFE3C8;
-  border-color: #EFE3C8;
-}
 
-.round:hover {
-  border-radius: 15px;
-  background-color: #fcf7ec;
-  border-color: #EFE3C8;
-}
-
-.footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-}
-
-.grap {
-  cursor: pointer;
-}
 </style>
