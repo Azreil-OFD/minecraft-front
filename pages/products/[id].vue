@@ -9,20 +9,18 @@
         <h1 class="flex text-2xl rosarivo-regular pt-5 gap-5">
           {{ card.title }}
           <div class="flex gap-1">
-            <Icon name="material-symbols:star" style="color: white" />
+            <Icon name="material-symbols:star" style="color: white;" />
             <p class="rosarivo-regular text-lg items-center">
               {{ card.rating }}
             </p>
           </div>
-
-
         </h1>
         <p class="rosarivo-regular grap" @click="card.collapse = false">{{ description }}</p>
 
         <div class="flex items-center justify-between gap-8 footer p-5">
           <div>
-            <label>Price</label>
-            <div class="text-2xl">₹{{ card.price }}</div>
+            <label class="rosarivo-regular">Price</label>
+            <div class="text-2xl rosarivo-regular">₹{{ card.price }}</div>
           </div>
           <Button label="Submit" size="large" class="w-full round"></Button>
         </div>
@@ -52,7 +50,7 @@ const card = ref({
 
 const description = computed(() => {
   if(card.value.collapse) {
-    return card.value.description.slice(0, 50) + '...Read more'
+    return card.value.description.slice(0, 50) + ' ...Read more'
   }
   return card.value.description
 })

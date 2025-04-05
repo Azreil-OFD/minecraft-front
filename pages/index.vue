@@ -30,11 +30,6 @@
 </template>
 
 <script setup>
-import Card from 'primevue/card';
-import InputText from 'primevue/inputtext';
-import 'primeicons/primeicons.css'
-import IconField from 'primevue/iconfield';
-import InputIcon from 'primevue/inputicon';
 
 const router = useRouter()
 

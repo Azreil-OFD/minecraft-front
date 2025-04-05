@@ -36,21 +36,23 @@ body {
     border-radius: 15px;
     background-color: #EFE3C8;
     border-color: #EFE3C8;
+    color: rgba(74, 43, 41, 1);
   }
   
-  .round:hover {
-    border-radius: 15px;
-    background-color: #fcf7ec;
-    border-color: #EFE3C8;
-  }
-  
-  .footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-  }
-  
-  .grap {
-    cursor: pointer;
-  }
+.round:hover {
+  border-radius: 15px;
+  background-color: #fcf7ec !important;
+  border-color: #EFE3C8 !important;
+  color: rgba(74, 43, 41, 1) !important;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.grap {
+  cursor: pointer;
+}
