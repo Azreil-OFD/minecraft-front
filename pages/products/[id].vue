@@ -41,6 +41,7 @@ const { data, status } = await useAsyncData(
 const route = useRoute()
 const router = useRouter()
 const card = ref({
+  id: 0,
   collapse: false,
   description: "",
   title: "",
@@ -66,6 +67,7 @@ onMounted(() => {
     const _card = data.value.find((item) => item.id == route.params.id)
     if (_card) {
       card.value = {
+        id: _card.id,
         image: _card.image,
         rating: _card.rating.rate,
         title: _card.title,
