@@ -5,7 +5,7 @@
     </div>
     <div v-else class="p-5">
       <div v-if="card" class="flex flex-col gap-2">
-        <img class="rounded-4xl h-130 object-contain bg-white" :src="card.image" alt="Product Image" />
+        <img class="rounded-4xl h-130 object-contain bg-white" :src="'https://minecraft-front.cloudpub.ru/assets/' + card.image" alt="Product Image" />
         <h1 class="flex text-2xl rosarivo-regular pt-5 gap-5">
           {{ card.title }}
           <div class="flex gap-1">
@@ -22,7 +22,7 @@
             <label class="rosarivo-regular">Price</label>
             <div class="text-2xl rosarivo-regular">₹{{ card.price }}</div>
           </div>
-          <Button label="Submit" size="large" class="w-full round"></Button>
+          <Button label="Submit" @click="addCartOrToHome(card)" size="large" class="w-full round"></Button>
         </div>
       </div>
       <div v-else>
@@ -35,10 +35,11 @@
 <script setup>
 const { data, status } = await useAsyncData(
   'products',
-  () => $fetch('https://fakestoreapi.com/products')
+  () => $fetch('/api/products')
 )
 
 const route = useRoute()
+const router = useRouter()
 const card = ref({
   collapse: false,
   description: "",
@@ -47,13 +48,18 @@ const card = ref({
   rating: 0,
   price: 0
 })
-
+const cart = useLocalStorage('cart' , [])
 const description = computed(() => {
   if(card.value.collapse) {
     return card.value.description.slice(0, 50) + ' ...Read more'
   }
   return card.value.description
 })
+
+const addCartOrToHome = (item) => {
+  cart.value.push(item)
+  router.push('/')
+}
 
 onMounted(() => {
   if (data) {
